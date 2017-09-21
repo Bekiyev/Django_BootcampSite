@@ -1,0 +1,145 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+<style>
+	{% block style %}
+		.navbar-static-top {
+			margin-bottom: 0px !important;
+		}
+
+		.jumbotron {
+			background-color: #F5F7F7;
+			color: #000607;
+		}
+	{% endblock %}
+</style>
+ 
+ {% block jumbotron %}
+ 	
+      <!-- Main component for a primary marketing message or call to action -->
+        <div class="jumbotron">
+	      <div class="container">
+	    		<div class="row">      
+			      	<div class="col-sm-6">
+				        <h2 class="owadan">Improve your coding skills</h2>
+				        <p class="owadan">Starting from the basics of how the web works, you will learn everything you need to know to build your own blog and scale it to support large numbers of users.</p>
+				        <p class="owadan">Enhance your Python Programming, JavaScript and Web Development skills set and boost your hirability through innovative, independent learning.</p>				        
+				        <p>
+				          <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">Join us &raquo;</a>
+				        </p>
+				     </div>
+
+				     <div class="col-sm-6"> 
+				     <iframe width="560" height="300" src="https://www.youtube.com/embed/0HouzpY3LJU" frameborder="0" allowfullscreen></iframe>
+		    		 </div>
+			    </div>
+			</div>
+		</div>
+	
+{% endblock %}
+
+{%block content %}
+	{% if request.user.is_authenticated or request.user.is_staff %}
+	<div class="row">
+			<div class="col-sm-4">
+				<h4 class="owadan text_align_center"> Web Development with Mr.Bekiyev<br/><br/>
+					<i class="fa fa-html5 fa-5x" aria-hidden="true"></i>
+					<i class="fa fa-css3 fa-5x" aria-hidden="true"></i>
+					<!-- {% load static %}
+					<img src="{% static 'django18/bekif.jpg' %}"> -->
+				</h4>
+			</div>
+
+
+			<div class="col-sm-4">
+				<h4 class="owadan text_align_center">JavaScript with Mr.Coskun <br/><br/> <br/>
+					<i class="fa fa-free-code-camp fa-5x" aria-hidden="true"></i>
+				</h4>
+			</div>
+
+
+			<div class="col-sm-4">
+				<h4 class="owadan text_align_center">Python Programming with Mr.Dokur<br/><br/>	
+					<i class="fa fa-code fa-5x" aria-hidden="true"></i>
+				</h4>
+			</div>		
+	</div>
+	
+	{% else %}
+
+	
+	<div class="row">
+				<div class = 'col-md-4 col-md-offset-4'>
+					<p class="lead text_align_center">{{ title }}</p>
+
+					<form method="POST" action=" ">{% csrf_token %}
+						{{ form|crispy }}
+					<input class="btn btn-primary" type="submit" value="Sign Up"> 
+					</form>
+				</div>
+		</div>  
+
+
+
+	{% endif %}
+
+{% endblock %}
+
+
+
+
+
+
+
+
+		
+
+
+<!-- {% if request.user.is_authenticated and request.user.is_staff %}
+		<h1>You are Logged in</h1>
+		{% if queryset %}
+			<h2> Welcome Staff</h2>		
+		<table class="table">
+			{% for abc in queryset %}
+				<tr>
+					<td>{{ forloop.counter }}</td>
+					<td>{{ abc}}</td>  
+					<td>{{ abc.full_name }}</td>
+					<td>{{ abc.timestamp }}</td>
+				</tr>
+			{% endfor %}
+		</table>
+		{% endif %}
+	{% endif %} -->
+
+
+<!-- <div class="container">
+			<div class="col-md-8 col-md-offset-2">
+				<h1 style="text-align: center;">WHAT'S A FULL STACK?</h1>
+                <p class="owadan">Learning a “full stack” means that you’ll be able to meet the demands of the best tech companies in the industry and understand the process of software development from beginning to end. This immersion will help you master the fundamental building blocks of web and mobile development by teaching you the main three components of a stack:</p>
+			</div>
+		</div>
+
+		<div class="row owadan">
+			<div class="col-md-4">
+				<h2 style="text-align: center;">Front End</h2>
+				<i class="fa fa-laptop fa-5x" aria-hidden="true"></i>
+				<!-- <img class="front_end" src="{% static 'img/web_front_end.png' %}">            
+                <p>We teach you the languages and tools you’ll need to create what users see and how they interact with a website or mobile application. This includes: HTML, CSS, jQuery, LESS, SASS, Bootstrap, CoffeeScript and more.</p>
+			</div>
+
+
+			<div class="col-md-4">
+				<h2 style="text-align: center;">Back End</h2>
+				<img class="back_end" src="{% static 'img/web_back_end.png' %}">
+				<p>You’ll learn the logic of how software applications work behind the scenes to produce desired content or results. This includes: PHP, Ruby, Python, C#, Java, Node.js, Swift and more.</p>
+			</div>	
+
+			<div class="col-md-4">
+				<h2 style="text-align: center;">Database</h2>
+                <img class="database" src="{% static 'img/web_database.png' %}">                  
+                <p>You’ll understand how user information is stored and learn other relevant information, including how to set things up in the cloud. This includes: Amazon EC2, Microsoft Azure, SQL, MongoDB, Postgres, Redis and more.</p><br/><br/><br/>
+			</div>	 -->		
+
+

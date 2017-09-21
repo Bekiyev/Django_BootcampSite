@@ -1,0 +1,36 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+      {% include 'head.html' %}
+
+      <style>
+            {% block style %}
+
+            {% endblock %}
+      </style>
+      
+  </head>
+
+  <body>
+
+       {% include 'navbar.html' %}
+
+      
+         {% block jumbotron %}
+
+         {% endblock %}
+      <div class="container">
+
+         {% block content %}
+
+         {% endblock %}
+      </div>
+
+      {% include 'javascript_css.html' %}
+
+  </body>
+
+</html>
